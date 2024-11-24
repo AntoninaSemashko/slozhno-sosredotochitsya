@@ -15,6 +15,7 @@
     --theme-color: #353430;
     --description-color: #353430;
     --theme-color-transparent: rgba(50, 49, 45, 0.4);
+    --background-color: #FFF1F7;
 
     --background-image: url(../images/cover-image-light.png);
 
@@ -29,6 +30,7 @@
       --theme-color: #353430;
       --description-color: #353430;
       --theme-color-transparent: rgba(50, 49, 45, 0.4);
+      --background-color: #FFF1F7;
 
       --background-image: url(../images/cover-image-light.png);
 
