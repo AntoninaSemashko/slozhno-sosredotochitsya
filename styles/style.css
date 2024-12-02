@@ -2,7 +2,8 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1440px;
   padding: 0;
   min-height: 100vh;
   box-sizing: border-box;
@@ -23,6 +24,7 @@
     /* Сетка для выравнивания элементов */
   display: grid;
   align-items: start;
+  grid-template-rows: 1fr min-content 1fr;
 }
 
 .decorated-zone {
@@ -95,11 +97,7 @@
  /*КНОПКИ*/
  /* Блок с кнопками */
 .header__theme-menu {
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  /*padding-top: 70px;
-  padding-right: 8px;*/
+  justify-self: center;
 }
 
  /* Список внутри блока */
@@ -147,17 +145,8 @@ header__theme-menu-button:focus {
   outline: 1px solid var(--theme-color);
 }
 
-/*Контейнер с логотипом и подписью*/
-.header_textblock {
-  display: flex;
-  flex-direction: column;
-  gap: 111px;
-  padding: 275px 0 116px;
-}
-
  /* Логотип сайта */
  .logo {
-  /* Положение в контейнере */
     margin-block-start: 1px;
     margin-inline-start: -20px;
   /* Стили текста */  
@@ -172,10 +161,10 @@ header__theme-menu-button:focus {
 
 /* Блок с текстом */
 .title {
-/* Положение в контейнере */
-  display: flex;
-  align-self: flex-end;
-  width: clamp(355px, 50%, 491px); 
+  width: clamp(355px, 50%, 491px);
+  /*Положение в грид контейнере*/
+  justify-self: end;
+  align-self: center; 
 }
 
 /* Стили схожих текстов */
@@ -186,6 +175,7 @@ header__theme-menu-button:focus {
   line-height: 23.4px;
   color: var(--text-color);
   background-color: var(--accent-color);
+  
 }
 
 /*ОСНОВНАЯ ЧАСТЬ*/
@@ -211,7 +201,7 @@ header__theme-menu-button:focus {
 
 .main_topic-menu-item {
   display: grid;
-  grid-template-rows: 23px;
+  grid-auto-rows: min-content;
   gap: 10px;
 }
 
@@ -362,10 +352,14 @@ color: var(--description-color);
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
-@media (width <= 769px) {
+@media (width <= 1023px) {
   .logo {
-    padding-block-end: 10px;
+    padding-block-start: 3px;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .title {
+    margin-block-end: 20px;
   }
 
   .footer_logo {
@@ -373,22 +367,15 @@ color: var(--description-color);
   }
 
   .header__theme-menu {
-    padding-block-end: 1px;
     padding-inline-end: 2px;
-    padding-block-start: 110px;
-    justify-content: end;
+    padding-block-start: 16px;
+    justify-self: end;
     align-self: center;
   }
 
   .header__theme-menu-list {
     flex-direction: column;
     gap: 10px;
-  }
-
-  .header_textblock {
-    padding-block-start: 103px;
-    padding-block-end: 46px;
-    gap: 134px;
   }
 
   .section_difficulties,
@@ -405,7 +392,7 @@ color: var(--description-color);
   }
 }
 
-@media (width <= 576px) {
+@media (width <= 767px) {
   .header {
     padding: 10px;
   }
@@ -413,7 +400,6 @@ color: var(--description-color);
   .rec {
     top: 9px;
     right: 18px;
-    gap: 9px;
   }
 
   .decorated-zone::before {
@@ -427,26 +413,17 @@ color: var(--description-color);
   }
 
   .header__theme-menu {
-    padding-block-start: 64px;
-    padding-right: 2px;
     justify-content: flex-end;
-    padding-block-start: 62px;
-  }
-
-  .header__theme-menu-list {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .header_textblock {
-    padding: 67px 0 55px;
-    gap: 45px;
+    padding-block-end: 20px;
   }
 
   .logo {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    margin-inline-start: 0;
+    margin-inline-start: 0px;
     line-height: 95.7px;
+  }
+
+  .title {
+    margin-block-end: 0px;
   }
 
   .main {
@@ -458,10 +435,6 @@ color: var(--description-color);
   .theme {
     max-width: 355px;
 }
-
-  .topic {
-    height: 47px;
-  }
 
   .section_difficulties,
   .section_method {
@@ -479,7 +452,6 @@ color: var(--description-color);
   }
 
   .section_reasons .main_topic-list {
-    grid-column: span 3;
     grid-template-columns: auto;
   }
 
@@ -487,9 +459,5 @@ color: var(--description-color);
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .footer_logo {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
